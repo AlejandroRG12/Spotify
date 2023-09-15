@@ -1,0 +1,8 @@
+.iconoInicio {
+    color: #535353!important;
+}
+
+.iconoInicio:hover {
+    color: white!important;
+    cursor: pointer;
+}
