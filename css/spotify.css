@@ -56,3 +56,41 @@
     cursor: pointer;
     transform: scale(1.1);
 }
+
+.greenCircle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #1CD760;
+    right: -75%;
+    bottom: 15%;
+    visibility: hidden;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.spotyCard:hover {
+    > .greenCircle{
+        visibility: visible;
+    }
+}
+
+.greenCircle:hover {
+    cursor: pointer;
+}
+
+.card-title:hover {
+    cursor: pointer;
+}
+
+.myPlaylist {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll !important;
+    flex-wrap: nowrap;
+}
+

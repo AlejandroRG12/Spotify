@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- botstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./css/spotify.css">
-    <title>My Spotify 🎧</title>
+    <link rel="stylesheet" href="./css/playlist.css">
+    <title>My spotify 🎧</title>
 </head>
 
 <body>
@@ -75,7 +72,7 @@
         <div class="col-9 m-2">
             <div class="navTop">
                 <div class="actions">
-                    <div class="left">
+                    <div class="left" onclick="returnHome(event)">
                         <i class="bi bi-chevron-left" style="color: white;"></i>
                     </div>
                     <div class="right">
@@ -91,35 +88,49 @@
                     </span>
                 </div>
             </div>
-            <div class="content m-1">
-                <div class="titulos"></div>
-                <div class="row myPlaylist" id="playlist"></div>
+            <div class="playlistContainer col-9 ms-1 mt-1">
+                <div class="info-playlist rounded shadow" >
+                    <div class="container">
+                        <div class="row cardInfo">
+                            <div class="col-4 contentImage">
+                                <div class="imgPlaylist">
+                                    <img src="./img/loadCardImage.png" id="albumImage" alt="load card temp" class="rounded shadow">
+                                </div>
+                            </div>
+                            <div class="col-8 title-description-playlist">
+                                <div class="name-playlist" style=" color: white;">
+                                    <h1 id="albumTitle">Playlist</h1>
+                                </div>
+                                <div class="description-playlist" style=" color: white;">
+                                    <p id="albumDescription">Descripcion</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actionPlaylist"></div>
+                    <div class="buttons-playlist">
+                        <div class="btn-play">
+                            <i class="bi bi-play-fill"></i>
+                        </div>
+                        <div class="btn-like-playlist" style="color: #A7A7A7;">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <button class="btn btn-outline-success">...</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <template id="cardPlayList">
-        <div class="card m-2 spotyCard" style="width: 18rem; background-color: #181818;">
-            <img src="..." class="card-img-top mt-3" alt="...">
-            <div class="greenCircle" onclick="openSpotify(event)">
-                <i class="bi bi-play-fill"></i>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title" 
-                    style="color: white;"
-                    onclick="openPlaylist(event)"
-                >
-                    Card title
-                </h5>
-                <p class="card-text" style="color: #A7A7A7;">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-            </div>
-        </div>
-    </template>
+
+
+
+
 
 
     <!-- Scrips -->
-    <script src="./js/app.js"></script>
+    <script src="./js/playlist.js"></script>
     <!-- ESTILOS DE BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
