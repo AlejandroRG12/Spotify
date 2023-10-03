@@ -2,15 +2,15 @@ const url = window.location.search;
 const params = new URLSearchParams(url);
 const id = params.get('id');
 
-const infoplaylist ={};
-const banerPlaylist= document.getElementById('cardInfo');
+const infoplaylist = {};
+const banerPlaylist = document.getElementById('cardInfo');
 
 
 
-console.log('Id de la playlist',id);
+console.log('Id de la playlist', id);
 
 document.addEventListener('DOMContentLoaded', () => {
-    //fetchPlaylist();
+    fetchPlaylist();
     infoAlbum();
 });
 
@@ -28,11 +28,18 @@ const fetchPlaylist = async () => {
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        console.log(result);
+        console.log('amdiwnin',result);
+        // Verifica si 'items' es un array antes de llamar a addSongsToPlaylist
+        if (Array.isArray(result.items)) {
+            addSongsToPlaylist(result.items);
+        } else {
+            console.error('La propiedad "items" de la respuesta no es un array.');
+        }
     } catch (error) {
         console.error(error);
     }
-} 
+    
+}
 
 const returnHome = () => {
     window.location.replace(`/index.html`);
@@ -63,4 +70,30 @@ const infoAlbum = async () => {
     });
     //console.log('INFO DE PLAYLIST', infoplaylist);
     newBanner();
+}
+
+// Función para agregar canciones dinámicamente
+const addSongsToPlaylist = (songs) => {
+    const songsContainer = document.querySelector('.playlistContainer .viewSongs');
+    const songTemplate = document.getElementById('song');
+
+    songs.forEach((item) => {
+        const songClone = document.importNode(songTemplate.content, true);
+
+        songClone.querySelector('.nameSong p').textContent = item.track.name;
+        songClone.querySelector('.artistSong p').textContent = item.track.artists.map(artist => artist.name).join(', ');
+        songClone.querySelector('.albumSong p').textContent = item.track.album.name;
+        songClone.querySelector('.dateSong p').textContent = item.track.album.release_date;
+        
+        // Cambiar la imagen a la versión más pequeña
+        const imageUrl = item.track.album.images.find(image => image.height === 64 && image.width === 64);
+        if (imageUrl) {
+            songClone.querySelector('.imageSong img').src = imageUrl.url;
+        } else {
+            // Si no se encuentra una imagen de 64x64, puedes mostrar una imagen por defecto.
+            songClone.querySelector('.imageSong img').src = '../img/loadCardImage64x64.png';
+        }
+
+        songsContainer.appendChild(songClone);
+    });
 }

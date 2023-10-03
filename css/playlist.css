@@ -61,6 +61,7 @@
 .playlistContainer {
     width: 100%;
     height: 100%;
+    padding: 10px 0 0 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,6 +113,8 @@
 /* =================== ACIONENES DE LOS BOTONES =================== */
 .buttons-playlist{
     display: flex;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .btn-play{
@@ -136,4 +139,28 @@
     align-items: center;
     justify-content: center;
     display: flex;
+}
+
+/* ==================== SONG TEMPLAT =======================E*/
+.playlistSongs{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: space-around;
+}
+
+.imageSong{
+    height: 64px;
+    width: 64px;
+}
+
+.viewSongs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
 }

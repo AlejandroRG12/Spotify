@@ -88,7 +88,7 @@
                     </span>
                 </div>
             </div>
-            <div class="playlistContainer col-9 ms-1 mt-1">
+            <div class="playlistContainer col-9">
                 <div class="info-playlist rounded shadow" >
                     <div class="container">
                         <div class="row cardInfo">
@@ -108,24 +108,53 @@
                         </div>
                     </div>
                 </div>
-                <div class="actionPlaylist"></div>
-                    <div class="buttons-playlist">
-                        <div class="btn-play">
-                            <i class="bi bi-play-fill"></i>
-                        </div>
-                        <div class="btn-like-playlist" style="color: #A7A7A7;">
-                            <i class="bi bi-heart"></i>
-                        </div>
-                        <button class="btn btn-outline-success">...</button>
+                <div class="buttons-playlist">
+                    <div class="btn-play">
+                        <i class="bi bi-play-fill"></i>
                     </div>
+                    <div class="btn-like-playlist" style="color: #A7A7A7;">
+                        <i class="bi bi-heart"></i>
+                    </div>
+                    <button class="btn btn-outline-success">...</button>
                 </div>
+
+                <!-- AQUI SE AGREGARAN LOS ITEMS POR CADA CANCION -->
+                <div class="viewSongs">
+                    
+                </div>
+
             </div>
         </div>
     </div>
 
 
 
-
+    <template id="song">
+        <div class="playlistSongs">
+            <div class="song">
+                <div class="imageSong">
+                    <img src="./img/loadCardImage64x64.png" alt="imagen del album de la cancion">
+                </div>
+            </div>
+            <div class="nameSongAndArtist col-5 p-3">
+                <div class="nameSong row">
+                    <p>Nombre de la cancion</p>
+                </div>
+                <div class="row artistSong">
+                    <p>artista</p>
+                </div>
+            </div>
+            <div class="albumSong col-3">
+                <p>album</p>
+            </div>
+            <div class="dateSong col-2">
+                <p>fecha de la cancion</p>
+            </div>
+            <div class="timeSong col-1">
+                <p>00:00</p>
+            </div>
+        </div>
+    </template>
 
 
 
